@@ -1,0 +1,56 @@
+Job Title: Data Analyst
+
+Job Overview:
+We are seeking a motivated and detail-oriented Data Analyst to join our team. The successful candidate will be responsible for analyzing data sets to provide insightful reports that drive business decisions. You will work closely with different departments to understand data needs and deliver actionable insights.
+
+Responsibilities:
+
+Collect, clean, and validate data from multiple sources for accuracy and completeness.
+
+Perform exploratory data analysis to discover trends, patterns, and anomalies.
+
+Develop and maintain dashboards and reports using visualization tools (e.g., Tableau, Power BI).
+
+Collaborate with stakeholders to define key metrics and data requirements.
+
+Utilize statistical methods to analyze data and generate predictive insights.
+
+Communicate findings effectively to technical and non-technical audiences.
+
+Support data-driven decision-making processes by providing reliable and timely data insights.
+
+Assist in data governance and ensure compliance with data privacy regulations.
+
+Requirements:
+
+Bachelor’s degree in Statistics, Mathematics, Computer Science, Economics, or related field.
+
+Proven experience as a data analyst or in a similar analytical role.
+
+Strong proficiency in SQL and experience querying databases.
+
+Skilled in data visualization tools like Tableau, Power BI, or Looker.
+
+Experience with programming languages such as Python or R for data analysis.
+
+Solid understanding of statistical techniques and analytics methodologies.
+
+Excellent problem-solving skills and attention to detail.
+
+Strong communication skills and ability to explain complex data concepts clearly.
+
+Preferred Qualifications:
+
+Experience with big data platforms (e.g., Hadoop, Spark).
+
+Knowledge of machine learning basics and predictive modeling.
+
+Familiarity with data warehousing concepts and ETL processes.
+
+Work Environment:
+
+Collaborative team environment fostering professional development.
+
+Opportunities to work on impactful projects across business functions.
+
+Flexible working hours and remote work options.

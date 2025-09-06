@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR AI Agent - Resume Upload and Candidate Ranking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea, input[type="file"], input[type="submit"], button {
+            width: 100%;
+            max-width: 600px;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="submit"], button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #3498db;
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .candidate {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: white;
+            max-width: 600px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Post Job Description and Upload Resumes</h2>
+    <form action="/" method="POST" enctype="multipart/form-data">
+
+        <!-- Job Description area retains previous input -->
+        <label for="job_description">Job Description:</label><br>
+        <textarea name="job_description" id="job_description" rows="8" cols="60" placeholder="Enter job description here..." required>{{ job_description or '' }}</textarea>
+
+        <!-- Only show uploads when there is no ranked_candidates yet -->
+        {% if not ranked_candidates %}
+            <label for="resumes">Upload Resume(s) (PDF or DOCX):</label><br>
+            <input type="file" name="resumes" id="resumes" accept=".pdf,.docx" multiple required />
+        {% endif %}
+
+        <!-- Candidate Review Panel -->
+        <div id="candidate-panel">
+            <h3>Ranked Candidates:</h3>
+            {% if ranked_candidates %}
+                {% for candidate in ranked_candidates %}
+                    <div class="candidate">
+                        <input type="checkbox" name="selected_candidates" value="{{ candidate.filename }}" checked>
+                        <b>
+                            {% if candidate.name %}
+                                {{ candidate.name }}
+                            {% else %}
+                                {{ candidate.filename }}
+                            {% endif %}
+                             - Score: {{ "%.3f"|format(candidate.score) }}
+                        </b><br>
+                        <pre>{{ candidate.summary }}</pre>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No candidates ranked yet. Please upload resumes and click "Upload and Analyze".</p>
+            {% endif %}
+        </div>
+
+        <!-- Submit buttons -->
+        {% if not ranked_candidates %}
+            <input type="submit" name="upload_analyze" value="Upload and Analyze" />
+        {% else %}
+            <input type="submit" name="confirm_selection" value="Confirm Selected Candidates and Schedule Interviews" />
+        {% endif %}
+
+    </form>
+
+    <div class="footer-note">
+        <p>Supported resume formats: PDF, DOCX. Maximum file size per resume: 5MB.</p>
+    </div>
+</body>
+</html>
